@@ -1,0 +1,22 @@
+<table class="table table-bordered">
+    <tr>
+        <td>RchID</td>
+        <td>HealthProviderName</td>
+        <td>WomenName</td>
+        <td>HusbandName</td>
+        <td>NotApplicable</td>
+        <td>SnoECinRCHRegister</td>
+        <td>AshaName</td>
+        <td>EnrollmentN</td>
+    </tr>
+    <tr *ngFor="let e of ECs">
+        <td>{{e.RchID}}</td>
+        <td>{{e.HealthProviderName}}</td>
+        <td>{{e.WomenName}}</td>
+        <td>{{e.HusbandName}}</td>
+        <td>{{e.NotApplicable}}</td>
+        <td>{{e.SnoECinRCHRegister}}</td>
+        <td>{{e.AshaName}}</td>
+        <td>{{e.EnrollmentN}}</td>
+    </tr>
+</table> 

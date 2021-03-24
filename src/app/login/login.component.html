@@ -1,0 +1,41 @@
+<div fxLayoutAlign="center center" style="margin-top: 5%;margin-bottom: 5%; text-align: center;" class="main-div">
+    <mat-card fxFlex="25" >
+        <mat-toolbar color="accent" style="justify-content: center;text-shadow: 2px 2px 5px rgb(160, 151, 29);">Welcome</mat-toolbar>
+    
+        <form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+    
+          <mat-form-field>
+            <mat-label>Select State</mat-label>
+            <mat-select [formControl]="selectControl" required>
+            <mat-option>--</mat-option>
+            <mat-option *ngFor="let st of states" [value]="st">
+            {{st.value}}
+            </mat-option>
+            </mat-select>
+            <mat-error *ngIf="selectControl.hasError('required')">Please choose a name</mat-error>   
+            </mat-form-field>  
+
+<mat-form-field appearance="outline" [color]="colorControl.value">
+  <input class="example-container" type= Username matInput placeholder="Username" [formControl]="user" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+
+ <mat-form-field appearance="outline">
+
+    <input matInput [type]="hide ? 'password' : 'text'"placeholder="Password" [formControl]="user" required>
+
+    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </button>
+
+    <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error> 
+      </mat-form-field>
+
+<button (click)="locationfun();" style="text-shadow: 2px 2px 5px rgb(160, 151, 29);" mat-raised-button type="submit" color="accent">Login</button>
+        </form> 
+    </mat-card>
+    
+</div> 
+
+

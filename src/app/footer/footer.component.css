@@ -1,0 +1,33 @@
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+.card-container {
+    /*  not needed styles to reflect it */ 
+    background:"primary";
+    padding: 10px;
+    color: rgb(19, 24, 88);
+    width: 500px;
+  
+    /* needed styles below */
+
+    justify-content: space-between;
+  }
+  * {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: auto;
+height: auto;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+.pic{
+margin-left: 100px;
+margin-right: 0px;
+}

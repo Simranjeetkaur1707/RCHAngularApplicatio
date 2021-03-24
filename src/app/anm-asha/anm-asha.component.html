@@ -1,0 +1,335 @@
+<mat-toolbar color="accent" style="justify-content: center;text-shadow: 2px 2px 5px rgb(160, 151, 29);">Health Provider/Asha Entry</mat-toolbar>
+
+<div fxLayoutAlign="center center" style="margin-top: 5%;margin-bottom: 5%;" class="main-div">
+
+    <mat-card fxFlex="70" class="card-container" >
+
+<button mat-raised-button (click)="isEditable = !isEditable">
+{{!isEditable ? 'Enable edit mode' : 'Disable edit mode'}}
+</button>
+
+<mat-horizontal-stepper [style.backgroundColor]="'cornsilk'" linear #stepper>
+
+
+<mat-step [stepControl]="firstFormGroup" [editable]="isEditable">
+    <form [formGroup]="firstFormGroup">
+    <ng-template matStepLabel>Asha Registration</ng-template>
+<!--This is here the asha registration form elements started-->
+
+<!--1st Form Field -->
+<h4>Registration ID</h4>
+<!--2nd Form Field -->
+<mat-divider [vertical]="true"></mat-divider>
+
+<mat-form-field>
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="firstCtrl" placeholder="first name, last name" required>
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Father's/Husband's Name</mat-label>
+    <input matInput formControlName="firstCtrl" placeholder="first name, last name" required>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Mobile Number</mat-label>
+    <input matInput formControlName="firstCtrl" placeholder="first name, last name" required>
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Active</mat-label>
+    <mat-select [formControl]="anmControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let pl of abpl" [value]="pl">
+        {{pl.value}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="anmControl.hasError('required')">Please choose a value</mat-error>   
+    </mat-form-field> 
+
+<mat-form-field>
+        <mat-label>Joining date (to SubCentre)</mat-label>
+        <input matInput formControlName="firstCtrl" placeholder="first name, last name" required>
+</mat-form-field>
+    
+<mat-form-field class="margin">
+        <mat-label>EID Number</mat-label>
+        <input matInput formControlName="firstCtrl" placeholder="first name, last name" required>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Telecom Operator</mat-label>
+    <mat-select [formControl]="anmControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let pl of abpl" [value]="pl">
+        {{pl.value}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="anmControl.hasError('required')">Please choose a value</mat-error>   
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Village </mat-label>
+    <mat-select [formControl]="anmControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let pl of abpl" [value]="pl">
+        {{pl.value}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="anmControl.hasError('required')">Please choose a value</mat-error>   
+</mat-form-field>
+
+<mat-form-field >
+    <mat-label>Designation</mat-label>
+    <mat-select [formControl]="anmControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let pl of abpl" [value]="pl">
+        {{pl.value}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="anmControl.hasError('required')">Please choose a value</mat-error>   
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Sex</mat-label>
+    <mat-select [formControl]="anmControl" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let pl of abpl" [value]="pl">
+        {{pl.value}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="anmControl.hasError('required')">Please choose a value</mat-error>   
+</mat-form-field>
+
+<mat-form-field class="example-full-width margin">
+    <mat-label>Address</mat-label>
+    <textarea matInput placeholder="Type Address here..."></textarea>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Is Validate</mat-label>
+    <mat-select >
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let pl of abpl" [value]="pl">
+        {{pl.value}}
+        </mat-option>
+    </mat-select> 
+</mat-form-field>
+
+<mat-form-field>
+    <mat-label>Financial Year</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>  
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>EID Date(dd-mm-yy)</mat-label>
+    <input matInput  placeholder="first name, last name" >
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>EID Number</mat-label>
+    <input matInput  placeholder="first name, last name" >
+</mat-form-field>
+
+<h4>Bank Details of Health Provider & Asha</h4>
+
+<mat-form-field >
+    <mat-label>Adhar Number</mat-label>
+    <input matInput  placeholder="first name, last name" >
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Bank Name</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Bank Branch</mat-label>
+    <input matInput  placeholder="first name, last name" >
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Adhar Linked</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<mat-form-field >
+    <mat-label>Account Number</mat-label>
+    <input matInput  placeholder="first name, last name" >
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>IFSC Code</mat-label>
+    <input matInput placeholder="first name, last name" >
+</mat-form-field>
+
+    <div>
+        <button mat-raised-button matStepperNext  color="accent">Next</button>
+    </div>
+    </form>
+</mat-step>
+
+<mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+    <form [formGroup]="secondFormGroup">
+    <ng-template matStepLabel>ANM/ASHA Search</ng-template>
+   
+
+    <mat-form-field class="margin">
+        <mat-label>Health sub-facility</mat-label>
+        <mat-select >
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let fy of abpl" [value]="fy">
+        {{fy.value}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="margin">
+        <mat-label>Health Provider/ASHA id</mat-label>
+        <input matInput placeholder="first name, last name" >
+    </mat-form-field>
+
+    
+<mat-form-field class="margin">
+    <mat-label>Name of Health Provider/Asha</mat-label>
+    <input matInput placeholder="first name, last name" >
+</mat-form-field>
+
+    
+<mat-form-field class="margin">
+    <mat-label>Designation</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Validated</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Date of Joining</mat-label>
+    <input matInput placeholder="first name, last name" >
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Telecom Operators</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Village</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+
+<mat-form-field class="margin">
+    <mat-label>Mobile Number</mat-label>
+    <input matInput placeholder="first name, last name" >
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Status  </mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Enrollment Number</mat-label>
+    <input matInput placeholder="first name, last name" >
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Adhar card</mat-label>
+    <input matInput placeholder="first name, last name" >
+</mat-form-field>
+
+<mat-divider [vertical]="true"></mat-divider>
+<button class="buttondiv" mat-raised-button type="submit" color="accent">Search</button>
+
+    <div>
+        <button mat-raised-button matStepperPrevious  color="accent">Back</button>
+        <button mat-raised-button matStepperNext  color="accent">Next</button>
+    </div>
+    </form>
+</mat-step>
+
+<mat-step [stepControl]="thirdFormGroup" [editable]="isEditable">
+    <form [formGroup]="thirdFormGroup">
+    <ng-template matStepLabel>Asha Transfer</ng-template>
+
+<mat-form-field class="margin">
+    <mat-label>Adhar card</mat-label>
+    <input matInput placeholder="first name, last name" >
+</mat-form-field>  
+
+
+
+<mat-form-field class="margin">
+    <mat-label>Status  </mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+    
+</form>
+</mat-step>
+</mat-horizontal-stepper>
+
+
+  </mat-card>
+  </div>
+  

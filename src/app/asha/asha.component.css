@@ -1,0 +1,23 @@
+.mat-expansion-panel-header {
+    background: #f8cedd;
+  }
+.mat-form-field + .mat-form-field {
+    margin-left: 8px;
+  }
+.margin{
+    margin-left: 50px;
+} 
+.margin-left{
+    margin-left: 130px;
+}  
+.buttondiv{
+
+    margin-left: 400px;
+    text-shadow: 2px 2px 5px rgb(160, 151, 29);  
+}
+
+.buttonTransfer{
+
+    margin-left: 300px;
+    text-shadow: 2px 2px 5px rgb(160, 151, 29);  
+}

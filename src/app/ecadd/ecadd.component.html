@@ -1,0 +1,28 @@
+<form method="post" (submit)="addEC()">
+    <br>
+     <input type="hidden" [(ngModel)]="eligiblecouple.RchID" name="RchID" for="RchID" value="{{autoId}}">
+    <br>
+    <!--
+<select [(ngModel)]="eligiblecouple.HealthProviderName" name="tourid">
+        <option *ngFor="let hp of hprovider" [value]="hp">{{ {{hp.value}}</option>
+</select>
+    <br>  
+    <select [(ngModel)]="package.packagetypeid" name="packagetypeid">
+        <option *ngFor="let packagetype of packageTypes" value="{{packagetype.packagetype}}">{{packagetype.packagetype}}</option>
+    </select>
+    <br>
+    <input type="text" placeholder="Title" [(ngModel)]="package.title" name="title">
+    <br>
+    <input type="text" placeholder="Cost" [(ngModel)]="package.cost" name="cost">
+    <br>
+        <input type="text" placeholder="Duration" [(ngModel)]="package.duration" name="duration">
+    <br> 
+    <input type="text" placeholder="Summary" [(ngModel)]="package.summary" name="summary">
+    <br>
+    <input type="text" placeholder="Description" [(ngModel)]="package.description" name="description">
+    <br>
+    <mat-checkbox [(ngModel)]="package.isactive" name="isactive">isactive</mat-checkbox><br>
+    <mat-checkbox [(ngModel)]="package.featured" name="featured">featured</mat-checkbox><br>
+    -->
+    <input type="submit">
+    </form>

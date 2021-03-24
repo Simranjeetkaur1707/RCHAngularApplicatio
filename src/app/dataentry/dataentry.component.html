@@ -1,0 +1,87 @@
+<mat-toolbar color="accent" style="justify-content: center;text-shadow: 2px 2px 5px rgb(160, 151, 29);">Data Entry</mat-toolbar>
+  
+<nav mat-tab-nav-bar mat-align-tabs="center" [style.backgroundColor]="'cornsilk'">
+   <a mat-tab-link
+      *ngFor="let link of navLinks"
+      [routerLink]="link.path"
+      routerLinkActive #aria="routerLinkActive"
+      [active]="aria.isActive">
+   {{link.label}}
+   </a>
+</nav>
+
+<div fxLayoutAlign="center center" style="margin-top: 2%; text-align: center;" class="main-div">
+
+   <mat-card fxFlex="70" class="card-container" [style.backgroundColor]="'cornsilk'">
+            
+<form fxLayoutAlign="stretch" fxLayout="column" class="login-form">
+  <div class="row"> 
+    <div class="column">
+  <mat-label >Profile Entry</mat-label><br>
+    <a href="#">
+       <img src="assets/img/ProfileEntry.png "  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+     <a href="www.google.com">
+       <img style="float:left;"src="assets/img/Bulk_Profile_entry.png" alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+     </a></a></div>
+
+     <div class="column">
+     <mat-label >Eligible Couples</mat-label><br>
+    <a href="/ec">
+       <img src="assets/img/ec.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+    </a></div>
+    <div class="column">
+       <mat-label >Pregnant Women Entry</mat-label><br>
+       <a href="#">
+          <img src="assets/img/mother.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >Child Entry</mat-label><br>
+       <a href="#">
+          <img src="assets/img/child.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >Health Provider/Asha Entry</mat-label><br>
+       <a href="/asha">
+          <img src="assets/img/AnmAsha.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >Bank Details Entry</mat-label><br>
+       <a href="#">
+          <img src="assets/img/BankDetails.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >Direct Data Entry</mat-label><br>
+       <a href="#">
+          <img src="assets/img/DirectEntry_1.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >Advanced Search</mat-label><br>
+       <a href="#">
+          <img src="assets/img/search.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >EC Re-Registration</mat-label><br>
+       <a href="#">
+          <img src="assets/img/Re_Reg.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >Edit Module</mat-label><br>
+       <a href="#">
+          <img src="assets/img/LMP.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >JSY PFMS Module</mat-label><br>
+       <a href="#">
+          <img src="assets/img/janni.jpg"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >Update EC Status</mat-label><br>
+       <a href="#">
+          <img src="assets/img/EC_ChangeFY.jpg"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       <div class="column">
+       <mat-label >User OTP</mat-label><br>
+       <a href="#">
+          <img src="assets/img/otp.png"  alt="HTML tutorial" style="width:42px;height:42px;border:0;">
+       </a></div>
+       </div>

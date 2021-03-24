@@ -1,0 +1,39 @@
+export class EligibleCouple {  
+    RchID:number;
+    HealthProviderName:string;
+    WomenName:string;
+    HusbandName:string;
+    NotApplicable:boolean;
+    SnoECinRCHRegister :string ;
+    AshaName:string;
+    EnrollmentNo:number;
+    AdharNoWomen:number;
+    AdharNoHusband:number;
+    BankName:string;
+    BankBranch:string;
+    AccountNoWomen:number;
+    AccountNoHusband:number;
+    IsAdharLinked:string;
+    IFSCCode:string;
+    MobileNo:number;
+    WhoseNo:string;
+    DateofRegistration:String;
+    FinancialYear:string;
+    WomenCA:number;
+    AgeatMarrigeW:number;
+    HusbandCA:number;
+    AgeatMarrigeH:number;
+    Address:string;
+    Caste:string;
+    Religion:string;
+    APLorBPL:string;
+    TotChildrenMale:number;
+    TotChildrenFemale:number;
+    YoungestChildAge:number;
+    InfertilityStatus:string;
+    IfECisInfertileReferTo:string;
+    NoofLiveChildrenMale:number;
+    NoofLiveChildrenFemale:number;
+    YoungestChildSex:string;
+   
+}

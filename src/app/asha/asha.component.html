@@ -1,0 +1,361 @@
+<mat-toolbar color="accent" style="justify-content: center;text-shadow: 2px 2px 5px rgb(160, 151, 29);">Health provider/ Asha Data Entry</mat-toolbar>
+
+<div fxLayoutAlign="center center" style="margin-top: 5%;margin-bottom: 5%;" class="main-div">
+
+    <mat-card fxFlex="70" class="card-container" >
+
+<mat-toolbar color="accent" style="justify-content: center;text-shadow: 2px 2px 5px rgb(160, 151, 29);"> 
+Please Choose a Form Below
+    </mat-toolbar>
+
+<mat-accordion >
+<mat-expansion-panel [style.backgroundColor]="'cornsilk'">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="justify-content: center;">
+          ANM/Asha Registration
+        </mat-panel-title>
+          </mat-expansion-panel-header>
+<h4>Registration ID</h4>
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+  <mat-label>Name</mat-label>
+  <input class="example-container" type="text" matInput placeholder="Woman's Name" [formControl]="user" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="margin" appearance="legacy" [color]="colorControl.value">
+      <mat-label>Father's/Husband's Name</mat-label>
+      <input class="example-container" type= text matInput placeholder="Father's/Husband's Name" [formControl]="user" required>
+      <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+        
+<mat-form-field class="margin" appearance="legacy" [color]="colorControl.value">
+    <mat-label>Mobile Number</mat-label>
+
+  <input class="example-container" type= text matInput  [formControl]="user" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Active</mat-label>
+  <mat-select [formControl]="ashaControl" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let a of active" [value]="a">
+      {{a.value}}
+    </mat-option>
+  </mat-select>
+  <mat-error *ngIf="ashaControl.hasError('required')">Please choose a name</mat-error>   
+</mat-form-field>
+<mat-divider [vertical]="true"></mat-divider>
+
+
+<mat-form-field  appearance="legacy" [color]="colorControl.value">
+  <mat-label>Joining date (to SubCentre)</mat-label>
+<input class="example-container" type= date matInput  [formControl]="user" required>
+<mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+  </mat-form-field>
+
+  <mat-form-field class="margin"  appearance="legacy" [color]="colorControl.value">
+    <mat-label>EID Number</mat-label>
+  <input class="example-container" type= number matInput  [formControl]="user" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+
+    <mat-form-field class="margin">
+      <mat-label>Telecom Operator</mat-label>
+    <mat-select [formControl]="ashaControl" required>
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let tele of telecom" [value]="tele">
+        {{tele.value}}
+      </mat-option>
+    </mat-select>
+    <mat-error *ngIf="ashaControl.hasError('required')">Please choose a name</mat-error>   
+  </mat-form-field>
+
+
+
+<mat-form-field >
+  <mat-label>Village</mat-label>
+<mat-select [formControl]="ashaControl" required>
+  <mat-option>--</mat-option>
+  <mat-option *ngFor="let vi of village" [value]="vi">
+    {{vi.value}}
+  </mat-option>
+</mat-select>
+<mat-error *ngIf="ashaControl.hasError('required')">Please choose a name</mat-error>   
+</mat-form-field>
+
+<mat-form-field class="margin">
+  <mat-label>Designation</mat-label>
+<mat-select [formControl]="ashaControl" required>
+  <mat-option>--</mat-option>
+  <mat-option *ngFor="let des of designation" [value]="des">
+    {{des.value}}
+  </mat-option>
+</mat-select>
+<mat-error *ngIf="ashaControl.hasError('required')">Please choose a name</mat-error>   
+</mat-form-field>
+
+<mat-form-field class="margin">
+  <mat-label>Sex</mat-label>
+<mat-select [formControl]="ashaControl" required>
+  <mat-option>--</mat-option>
+  <mat-option *ngFor="let se of sex" [value]="se">
+    {{se.value}}
+  </mat-option>
+</mat-select>
+<mat-error *ngIf="ashaControl.hasError('required')">Please choose a name</mat-error>   
+</mat-form-field>
+
+
+<mat-form-field class="example-full-width margin">
+  <mat-label>Address</mat-label>
+  <textarea matInput placeholder="Type Address here..."></textarea>
+</mat-form-field>
+
+<mat-form-field >
+  <mat-label>Is Validate</mat-label>
+  <mat-select >
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let pl of abpl" [value]="pl">
+      {{pl.value}}
+      </mat-option>
+  </mat-select> 
+</mat-form-field>
+
+ 
+<mat-form-field>
+  <mat-label>Financial Year</mat-label>
+  <mat-select [disabled]="disableSelect.value"[formControl]="ashaControl" required>
+  <mat-option value="selected" selected>2020-2021</mat-option>
+  <mat-option disabled>2010-2011</mat-option>
+  <mat-option disabled>2011-2012</mat-option>
+  <mat-option disabled>2012-2013</mat-option>
+  <mat-option disabled>2013-2014</mat-option>
+  <mat-option disabled>2014-2015</mat-option>
+  <mat-option disabled>2015-2016</mat-option>
+  <mat-option disabled>2016-2017</mat-option>
+  <mat-option disabled>2017-2018</mat-option>
+  <mat-option disabled>2018-2019</mat-option>
+  <mat-option disabled>2019-2020</mat-option>
+  <mat-option disabled>2020-2021</mat-option>
+</mat-select>
+</mat-form-field>
+
+<mat-form-field class="margin">
+  <mat-label>EID Date(dd-mm-yy)</mat-label>
+  <input type="date" matInput  >
+</mat-form-field>
+
+<mat-form-field class="margin">
+  <mat-label>EID Number</mat-label>
+  <input matInput type="number" >
+</mat-form-field>
+
+<h4>Bank Details of Health Provider & Asha</h4>
+
+<mat-form-field >
+  <mat-label>Adhar Number</mat-label>
+  <input matInput type="number" >
+</mat-form-field>
+
+<mat-form-field class="margin">
+  <mat-label>Bank Name</mat-label>
+  <mat-select >
+  <mat-option>--</mat-option>
+  <mat-option *ngFor="let bnk of bank" [value]="bnk">
+  {{bnk.value}}
+  </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+  <mat-label>Bank Branch</mat-label>
+  <input matInput >
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+  <mat-label>Adhar Linked</mat-label>
+  <mat-select >
+  <mat-option>--</mat-option>
+  <mat-option *ngFor="let fy of abpl" [value]="fy">
+  {{fy.value}}
+  </mat-option>
+  </mat-select>
+</mat-form-field>
+
+
+<mat-form-field >
+  <mat-label>Account Number</mat-label>
+  <input matInput type="number" placeholder="first name, last name" >
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+  <mat-label>IFSC Code</mat-label>
+  <input matInput placeholder="first name, last name" >
+</mat-form-field>
+
+</mat-expansion-panel>
+
+<mat-expansion-panel [style.backgroundColor]="'cornsilk'" >
+  <mat-expansion-panel-header>
+    <mat-panel-title style="justify-content: center;">
+      ANM/Asha Search
+    </mat-panel-title>
+      </mat-expansion-panel-header>
+
+  
+      <mat-form-field >
+        <mat-label>Health sub-facility</mat-label>
+        <mat-select >
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let sub of subfacility" [value]="sub">
+        {{sub.value}}
+        </mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="margin">
+        <mat-label>Health Provider/ASHA id</mat-label>
+        <input matInput >
+    </mat-form-field>
+
+    
+<mat-form-field class="margin">
+    <mat-label>Name of Health Provider/Asha</mat-label>
+    <input matInput >
+</mat-form-field>
+
+    
+        <mat-form-field class="margin">
+    <mat-label>Designation</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let desg of designation" [value]="desg">
+    {{desg.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<mat-form-field >
+    <mat-label>Validated</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let fy of abpl" [value]="fy">
+    {{fy.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Date of Joining</mat-label>
+    <input matInput type="date" >
+</mat-form-field>
+
+<mat-form-field class="margin-left">
+    <mat-label>Telecom Operators</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let telee of telecom" [value]="telee">
+    {{telee.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Village</mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let v of village" [value]="v">
+    {{v.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+
+<mat-form-field >
+    <mat-label>Mobile Number</mat-label>
+    <input matInput type="number">
+</mat-form-field>
+
+<mat-form-field class="margin-left">
+    <mat-label>Status  </mat-label>
+    <mat-select >
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let st of status" [value]="st">
+    {{st.value}}
+    </mat-option>
+    </mat-select>
+</mat-form-field>
+
+<mat-form-field class="margin">
+    <mat-label>Enrollment Number</mat-label>
+    <input matInput type="number" >
+</mat-form-field>
+
+
+<mat-form-field class="margin">
+    <mat-label>Adhar number</mat-label>
+    <input matInput type="number" >
+</mat-form-field>
+
+<button class="buttondiv" mat-raised-button type="submit" color="accent">Search</button>
+
+    </mat-expansion-panel>
+
+    
+<mat-expansion-panel [style.backgroundColor]="'cornsilk'" >
+  <mat-expansion-panel-header>
+    <mat-panel-title style="justify-content: center;">
+      Asha Transfer
+    </mat-panel-title>
+      </mat-expansion-panel-header>
+
+      <button class="buttonTransfer" mat-raised-button type="submit" color="accent">Active ANM</button>
+      <button  mat-raised-button type="submit" color="accent">Link ANM</button>
+      <button  mat-raised-button type="submit" color="accent">InActive ANM</button>
+  
+<mat-divider [vertical]="true"></mat-divider>
+
+<mat-form-field class="margin-left">
+        <mat-label>Health Provider/Asha Id</mat-label>
+        <input matInput >
+    </mat-form-field>
+
+ <mat-form-field class="margin-left">
+      <mat-label>Choose Process</mat-label>
+      <mat-select >
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let pr of process" [value]="pr">
+      {{pr.value}}
+      </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  
+<mat-form-field class="margin-left">
+  <mat-label>Option</mat-label>
+  <mat-select >
+  <mat-option>--</mat-option>
+  <mat-option *ngFor="let op of option" [value]="op">
+  {{op.value}}
+  </mat-option>
+  </mat-select>
+</mat-form-field>
+
+<button style="margin-left: 350px;" mat-raised-button type="submit" color="accent">Search by ID</button>
+<button  mat-raised-button type="submit" color="accent">Clear</button>
+
+</mat-expansion-panel>
+</mat-accordion>
+</mat-card>
+</div>

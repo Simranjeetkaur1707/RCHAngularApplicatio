@@ -1,0 +1,450 @@
+<form  #formdetails  [formGroup]="myForm" >
+<mat-toolbar color="accent" style="justify-content: center;text-shadow: 2px 2px 5px rgb(160, 151, 29);">Eligible Couple Form(EC)</mat-toolbar>
+
+<div fxLayoutAlign="center center" style="margin-top: 5%;margin-bottom: 5%;" class="main-div">
+
+    <mat-card fxFlex="70" class="card-container" >
+
+<mat-toolbar color="accent" style="justify-content: center;text-shadow: 2px 2px 5px rgb(160, 151, 29);"> 
+SECTION 1(INDEX)<br>
+Tracking of Eligible Couple(EC) & use of Contraceptives(EC-1)
+    </mat-toolbar>
+
+<mat-accordion >
+
+<mat-expansion-panel [style.backgroundColor]="'cornsilk'">
+      <mat-expansion-panel-header>
+        <mat-panel-title style="justify-content: center;">
+          Basic Details
+        </mat-panel-title>
+          </mat-expansion-panel-header>
+  
+      <p>RCH ID No. (Auto Generated)</p>
+
+<mat-form-field>
+        <mat-label>Health Provider Name</mat-label>
+        <mat-select name="hpname"  [(ngModel)]="eligiblecouple.HealthProviderName" [formControl]="ECcontrol" required>
+          <mat-option>--</mat-option>
+         <mat-option *ngFor="let hp of hprovider" [value]="hp">
+            {{hp.value}}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a name</mat-error>  
+      </mat-form-field>
+      <mat-divider [vertical]="true"></mat-divider>
+      
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+        <mat-label>Name of Women</mat-label>
+        <input #womenname [(ngModel)]="eligiblecouple.WomenName" class="example-container" type= text matInput placeholder="Woman's Name" [formControl]="user" required>
+        <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+        <mat-label>Name of Husband</mat-label>
+        <input [(ngModel)]="eligiblecouple.HusbandName" class="example-container" type= text matInput placeholder="Husband's Name" [formControl]="Hdis" required>
+        <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-checkbox [(ngModel)]="eligiblecouple.NotApplicable" [formControl]="HCBox">Not Applicable</mat-checkbox>
+          <mat-divider [vertical]="true"></mat-divider>
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+            <mat-label>S.No of EC in RCH Register</mat-label>
+            <input [(ngModel)]="eligiblecouple.SnoECinRCHRegister" class="example-container" type= number matInput placeholder="Woman's Name" [formControl]="user" required>
+            <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+      
+<mat-form-field>
+                <mat-label>Asha Name</mat-label>
+                <mat-select [(ngModel)]="eligiblecouple.AshaName" [formControl]="ECcontrol" required>
+                  <mat-option>--</mat-option>
+                  <mat-option *ngFor="let a of asha" [value]="a">
+                    {{a.value}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a name</mat-error>   
+              </mat-form-field>
+</mat-expansion-panel>
+
+<mat-expansion-panel [style.backgroundColor]="'cornsilk'" (opened)="panelOpenState = true"
+                         (closed)="panelOpenState = false">
+
+<mat-expansion-panel-header>
+        
+<mat-panel-title style="justify-content: center;">
+          Adhar No. & Bank Details of Women & Husband
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+        <mat-label>Enrollment Number</mat-label>
+        <input [(ngModel)]="eligiblecouple.EnrollmentNo" class="example-container" type= number matInput placeholder="Enrollment Number" [formControl]="user" required>
+        <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field> -          
+        <mat-form-field appearance="legacy" [color]="colorControl.value">
+            <mat-label>  </mat-label>
+            <input class="example-container" type= number matInput placeholder="Enrollment Number" [formControl]="user" required>
+            <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+              </mat-form-field>
+<h3>Bank Details:-</h3>
+<h4>Women</h4>
+<mat-divider [vertical]="true"></mat-divider>
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+  <mat-label>Adhar Number  </mat-label>
+  <input [(ngModel)]="eligiblecouple.AdharNoWomen" class="example-container" type= number matInput placeholder="Adhar Number" [formControl]="user" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+
+<mat-divider [vertical]="true"></mat-divider>
+
+
+<mat-form-field>
+<mat-label>Bank Name</mat-label>
+<mat-select [(ngModel)]="eligiblecouple.BankName" [formControl]="ECcontrol" required>
+<mat-option>--</mat-option>
+<mat-option *ngFor="let b of bank" [value]="b">
+{{b.value}}
+</mat-option>
+</mat-select>
+<mat-error *ngIf="ECcontrol.hasError('required')">Please choose a name</mat-error>   
+</mat-form-field>
+    
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+<mat-label>Bank Branch  </mat-label>
+<input [(ngModel)]="eligiblecouple.BankBranch" class="example-container" type= text matInput placeholder="Adhar Number" [formControl]="user" required>
+<mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+<mat-label>Account Number  </mat-label>
+<input [(ngModel)]="eligiblecouple.AccountNoWomen" class="example-container" type= number matInput placeholder="Account Number" [formControl]="user" required>
+<mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+
+
+<mat-form-field>
+<mat-label>Is Adhar Linked </mat-label>
+<mat-select [(ngModel)]="eligiblecouple.IsAdharLinked" [formControl]="ECcontrol" required>
+<mat-option>--</mat-option>
+<mat-option *ngFor="let ad of adhar" [value]="ad">
+{{ad.value}}
+</mat-option>
+</mat-select>
+<mat-error *ngIf="ECcontrol.hasError('required')">Please choose a name</mat-error>   
+</mat-form-field>
+
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+<mat-label>IFSC Code  </mat-label>
+<input [(ngModel)]="eligiblecouple.IFSCCode" class="example-container" type= text matInput placeholder="IFSC Code" [formControl]="user" required>
+<mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+</mat-form-field>
+
+
+<h4>Husband</h4>
+<mat-divider [vertical]="true"></mat-divider>
+
+        <mat-form-field appearance="legacy" [color]="colorControl.value">
+          <mat-label>Adhar Number {{HCDisabled}} </mat-label>
+          
+          <input [(ngModel)]="eligiblecouple.AdharNoHusband" class="example-container" type="number" matInput placeholder="Adhar Number" [formControl]="Hdis"required>
+          <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+
+<mat-divider [vertical]="true"></mat-divider>
+
+  
+<mat-form-field>
+  <mat-label>Bank Name</mat-label>
+  <mat-select [(ngModel)]="eligiblecouple.BankName" [formControl]="Hdis">
+      <mat-option>--</mat-option>
+      <mat-option *ngFor="let b of bank" [value]="b">
+      {{b.value}}
+      </mat-option>
+  </mat-select>
+  <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a name</mat-error>   
+  </mat-form-field>
+            
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+  <mat-label>Bank Branch {{HCDisabled}} </mat-label>
+
+  <input [(ngModel)]="eligiblecouple.BankBranch" class="example-container" type= text matInput [formControl]="Hdis" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+  <mat-label>Account Number  </mat-label>
+  <input [(ngModel)]="eligiblecouple.AccountNoHusband" class="example-container" type= number matInput placeholder="Account Number" [formControl]="Hdis" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+
+
+<mat-form-field>
+<mat-label>Is Adhar Linked </mat-label>
+<mat-select [(ngModel)]="eligiblecouple.IsAdharLinked" [formControl]="Hdis" required>
+  <mat-option>--</mat-option>
+  <mat-option *ngFor="let ad of adhar" [value]="ad">
+  {{ad.value}}
+  </mat-option>
+</mat-select>
+<mat-error *ngIf="ECcontrol.hasError('required')">Please choose a name</mat-error>   
+</mat-form-field>
+
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+  <mat-label>IFSC Code  </mat-label>
+  <input [(ngModel)]="eligiblecouple.IFSCCode" class="example-container" type= text matInput placeholder="IFSC Code" [formControl]="Hdis" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+  </mat-expansion-panel>
+        
+
+<mat-expansion-panel [style.backgroundColor]="'cornsilk'">
+    <mat-expansion-panel-header>
+    <mat-panel-title style="justify-content: center;">
+   Other Details
+    </mat-panel-title>
+    </mat-expansion-panel-header>
+    
+    
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+        <mat-label>Mobile Number </mat-label>
+        <input [(ngModel)]="eligiblecouple.MobileNo class="example-container" type= number matInput placeholder="Mobile Number" [formControl]="user" required>
+        <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+            </mat-form-field>
+    
+    
+<mat-form-field>
+        <mat-label>Whose Number</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.WhoseNo" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let wn of wNumber" [value]="wn">
+        {{wn.value}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a name</mat-error>   
+        </mat-form-field>  
+
+
+ 
+
+ <mat-form-field appearance="legacy" [color]="colorControl.value">
+  <mat-label>Date of Registration</mat-label>
+  <input [(ngModel)]="eligiblecouple.DateofRegistration" class="example-container" type= date matInput placeholder="Age" [formControl]="user" required>
+  <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+    
+<!--<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field> -->
+
+ 
+<mat-form-field>
+  <mat-label>Financial Year</mat-label>
+  <mat-select [(ngModel)]="eligiblecouple.FinancialYear" [disabled]="disableSelect.value"[formControl]="ECcontrol" required>
+  <mat-option value="selected" selected>2020-2021</mat-option>
+  <mat-option disabled>2010-2011</mat-option>
+  <mat-option disabled>2011-2012</mat-option>
+  <mat-option disabled>2012-2013</mat-option>
+  <mat-option disabled>2013-2014</mat-option>
+  <mat-option disabled>2014-2015</mat-option>
+  <mat-option disabled>2015-2016</mat-option>
+  <mat-option disabled>2016-2017</mat-option>
+  <mat-option disabled>2017-2018</mat-option>
+  <mat-option disabled>2018-2019</mat-option>
+  <mat-option disabled>2019-2020</mat-option>
+  <mat-option disabled>2020-2021</mat-option>
+
+  <mat-option *ngFor="let fy of financeYear" [value]="fy">
+  {{fy.value}}
+  </mat-option>
+  </mat-select>
+  <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a year</mat-error>   
+  </mat-form-field> 
+  <mat-checkbox [formControl]="disableSelect">Disable select</mat-checkbox>
+<h3>Women</h3>
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+    <mat-label> Current Age</mat-label>
+    <input [(ngModel)]="eligiblecouple.WomenCA" [formControl]="CAWControl" class="example-container" type="number" matInput placeholder="Age" required>
+    <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+<mat-form-field>
+            <mat-label>Age at Marrige(in yrs)</mat-label>
+            <input [(ngModel)]="eligiblecouple.AgeatMarrigeW" [formControl]="AMWControl"  matInput type="number" min="1">
+          </mat-form-field>
+
+          <mat-divider></mat-divider>
+
+<h3>Husband</h3>
+
+
+
+<mat-form-field appearance="legacy" [color]="colorControl.value">
+    <mat-label> current Age</mat-label>
+    <input (input)="age();" [(ngModel)]="eligiblecouple.HusbandCA" [formControl]="CAHControl" class="example-container" type= number matInput placeholder="Age" required>
+    <mat-error *ngIf="user.invalid">{{getErrorMessage()}}</mat-error>
+        </mat-form-field>
+
+<mat-form-field>
+            <mat-label>Age at Marrige(in yrs)</mat-label>
+            <input matInput [(ngModel)]="eligiblecouple.AgeatMarrigeH" [formControl]="AMHControl" type="number" min="1">
+        </mat-form-field>
+
+<mat-divider [vertical]="true"></mat-divider>
+
+<mat-form-field class="example-full-width">
+    <mat-label>Address</mat-label>
+    <textarea [(ngModel)]="eligiblecouple.Address" matInput placeholder="Type Address here..."></textarea>
+  </mat-form-field>
+
+
+<mat-form-field>
+    <mat-label>Caste</mat-label>
+    <mat-select [(ngModel)]="eligiblecouple.Caste" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let c of caste" [value]="c">
+        {{c.value}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a value</mat-error>   
+    </mat-form-field>  
+
+<mat-form-field>
+    <mat-label>Religion</mat-label>
+    <mat-select [(ngModel)]="eligiblecouple.Religion" [formControl]="ECcontrol" required>
+    <mat-option>--</mat-option>
+    <mat-option *ngFor="let r of religion" [value]="r">
+    {{r.value}}
+    </mat-option>
+</mat-select>
+<mat-error *ngIf="ECcontrol.hasError('required')">Please choose a name</mat-error>   
+</mat-form-field>  
+
+<mat-form-field>
+    <mat-label>APL/BPL</mat-label>
+    <mat-select [(ngModel)]="eligiblecouple.APLorBPL" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let pl of abpl" [value]="pl">
+        {{pl.value}}
+        </mat-option>
+    </mat-select>
+    <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a value</mat-error>   
+    </mat-form-field>  
+    
+    <mat-divider></mat-divider>
+
+<h4>Total Number of Children</h4>
+<mat-divider [vertical]="true"></mat-divider>
+
+<mat-form-field>
+        <mat-label>Male</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.TotChildrenMale" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let m of male" [value]="m">
+        {{m.value}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a value</mat-error>   
+        </mat-form-field>  
+
+<mat-form-field>
+        <mat-label>Female</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.TotChildrenFemale" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let f of female" [value]="f">
+        {{f.value}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ECcontrol.hasError('required')">Female</mat-error>   
+        </mat-form-field>  
+
+<mat-form-field>
+        <mat-label>Youngest Child Age(M/Y)</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.YoungestChildAge" [formControl]="disableSelect" [disabled]="disableSelect.value">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let y of YChild" [value]="y">
+        {{y.value}}
+        </mat-option>
+      
+        </mat-select>
+        </mat-form-field> 
+  
+        <mat-divider [vertical]="true"></mat-divider>
+
+<mat-form-field>
+        <mat-label>Infertility Status</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.InfertilityStatus" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let fer of infertile" [value]="fer">
+        {{fer.value}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a value</mat-error>   
+        </mat-form-field>  
+
+<mat-form-field>
+        <mat-label>If ec is Infertile Refer to:</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.IfECisInfertileReferTo" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let ref of refer" [value]="ref">
+        {{ref.value}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ECcontrol.hasError('required')">Please choose a value</mat-error>   
+        </mat-form-field>  
+
+<h4>Number of Live Children</h4>
+<mat-divider [vertical]="true"></mat-divider>
+
+<mat-form-field>
+        <mat-label>Male</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.NoofLiveChildrenMale" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let m2 of male2" [value]="m2">
+        {{m2.value}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ECcontrol.hasError('required')">Male</mat-error>   
+        </mat-form-field>  
+
+<mat-form-field>
+        <mat-label>Female</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.NoofLiveChildrenFemale" [formControl]="ECcontrol" required>
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let f2 of female2" [value]="f2">
+        {{f2.value}}
+        </mat-option>
+        </mat-select>
+        <mat-error *ngIf="ECcontrol.hasError('required')">Female</mat-error>   
+        </mat-form-field>  
+
+<mat-form-field>
+        <mat-label>Youngest Child Sex</mat-label>
+        <mat-select [(ngModel)]="eligiblecouple.YoungestChildSex" [formControl]="disableSelect" [disabled]="disableSelect.value">
+        <mat-option>--</mat-option>
+        <mat-option *ngFor="let se of sex" [value]="se">
+        {{se.value}}
+        </mat-option>
+        </mat-select>
+        </mat-form-field>  
+                    
+</mat-expansion-panel>
+   
+  </mat-accordion>
+<div style="margin-left: 380px; margin-top: 10px;">
+  <button (click)="onSubmit();" class="buttondiv" mat-raised-button type="submit" color="accent">Save</button>
+  
+  <button class="buttondiv" mat-raised-button type="submit" color="accent">Continue</button>
+  
+  <button class="buttondiv" mat-raised-button type="submit" color="accent">New Entry</button>
+</div>
+  </mat-card>
+  </div>
+</form> 
